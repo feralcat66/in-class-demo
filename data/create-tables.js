@@ -20,11 +20,12 @@ async function run() {
         // run a query to create tables
         await client.query(`
             CREATE TABLE instruments (
-                instrument SERIAL PRIMARY KEY NOT NULL,
+                id SERIAL PRIMARY KEY NOT NULL,
+                instrument VARCHAR(256) NOT NULL,
                 main_strings VARCHAR(256) NOT NULL,
                 bowed BOOLEAN NOT NULL,
                 origin VARCHAR(256) NOT NULL,
-                url INTEGER NOT NULL
+                url VARCHAR(256) NOT NULL
             );
         `);
 

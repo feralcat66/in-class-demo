@@ -2,7 +2,7 @@ require('dotenv').config();
 const pg = require('pg');
 const Client = pg.Client;
 // import our seed data:
-const instruments = require('./instruments.json');
+const instruments = require('../instruments.js');
 
 run();
 
@@ -20,8 +20,8 @@ async function run() {
                 // This is the query to insert a cat into the db.
                 // First argument is the function is the "parameterized query"
                 return client.query(`
-                    INSERT INTO cats (name, type, url, year, lives, is_sidekick)
-                    VALUES ($1, $2, $3, $4, $5, $6);
+                    INSERT INTO instruments (id, instrument, main_strings, bowed, origin, url)
+                    VALUES ($1, $2, $3, $4, $5);
                 `,
                     // Second argument is an array of values for each parameter in the query:
                 [instrument.instrument, instrument.main_strings, instrument.bowed, instrument.origin, instrument.url]);

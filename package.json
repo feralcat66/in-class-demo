@@ -9,8 +9,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "exit 0",
-    "start": "node server.js",
-    "start:watch": "nodemon server.js",
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
     "create-tables": "node data/create-tables.js",
     "drop-tables": "node data/drop-table.js",
     "load-seed-data": "node data/load-seed-data.js",
