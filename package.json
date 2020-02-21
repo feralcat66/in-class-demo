@@ -1,0 +1,30 @@
+{
+  "name": "in-class-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "exit 0",
+    "start": "node server.js",
+    "start:watch": "nodemon server.js",
+    "create-tables": "node data/create-tables.js",
+    "drop-tables": "node data/drop-tables.js",
+    "load-seed-data": "node data/load-seed-data.js",
+    "recreate-tables": "npm run drop-tables && npm run create-tables",
+    "setup-db": "npm run recreate-tables && npm run load-seed-data"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feralcat66/in-class-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feralcat66/in-class-demo/issues"
+  },
+  "homepage": "https://github.com/feralcat66/in-class-demo#readme"
+}
