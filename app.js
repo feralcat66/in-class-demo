@@ -19,7 +19,7 @@ app.use(cors()); // enable CORS request
 
 // API Routes
 
-app.get('/instruments.js', async(req, res) => {
+app.get('/instruments', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT
