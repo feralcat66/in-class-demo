@@ -28,7 +28,7 @@ app.get('/instruments', async(req, res) => {
                 bowed,
                 origin,
                 url,
-            FROM instruments;
+            FROM INSTRUMENTS;
         `);
 
         console.log(result.rows);

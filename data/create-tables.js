@@ -19,7 +19,7 @@ async function run() {
     
         // run a query to create tables
         await client.query(`
-            CREATE TABLE instruments (
+            CREATE TABLE INSTRUMENTS (
                 id SERIAL PRIMARY KEY NOT NULL,
                 instrument VARCHAR(256) NOT NULL,
                 main_strings VARCHAR(256) NOT NULL,
