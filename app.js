@@ -27,7 +27,7 @@ app.get('/api/instruments', async(req, res) => {
                 main_strings,
                 bowed,
                 origin,
-                url,
+                url
             FROM instruments;
         `);
 
