@@ -34,7 +34,7 @@ app.get('/api/instruments', async(req, res) => {
                 origin,
                 url,
                 t.name as type
-            FROM instruments
+            FROM instrument
             JOIN types t
             on instrument.type_id = t.id;
         `);
