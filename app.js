@@ -29,7 +29,6 @@ app.get('/api/instruments', async(req, res) => {
             SELECT
                 instrument,
                 main_strings,
-                type,
                 bowed,
                 origin,
                 url,
