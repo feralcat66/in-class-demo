@@ -33,7 +33,7 @@ app.get('/api/instruments', async(req, res) => {
                 url,
                 t.name as type
             FROM instruments;
-            JOIN types as t
+            JOIN types t
             on instruments.type_id = t.id;
         `);
 
