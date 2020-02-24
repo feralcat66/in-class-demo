@@ -8,6 +8,7 @@ const pg = require('pg');
 console.log(process.env);
 // Database Client
 const Client = pg.Client;
+console.log(process.env.DATABASE_URL);
 const client = new Client(process.env.DATABASE_URL);
 client.connect();
 

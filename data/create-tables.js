@@ -28,7 +28,7 @@ async function run() {
             CREATE TABLE instruments (
                 id SERIAL PRIMARY KEY NOT NULL,
                 instrument VARCHAR(256) NOT NULL,
-                type_id INTEGER NOT NULL REFERENCES types(id)
+                type_id INTEGER NOT NULL REFERENCES types(id),
                 main_strings VARCHAR(256) NOT NULL,
                 bowed BOOLEAN NOT NULL,
                 origin VARCHAR(256) NOT NULL,

@@ -42,8 +42,8 @@ async function run() {
                 // This is the query to insert a cat into the db.
                 // First argument is the function is the "parameterized query"
                 return client.query(`
-                    INSERT INTO instruments (id, instrument, main_strings, bowed, origin, url)
-                    VALUES ($1, $2, $3, $4, $5);
+                    INSERT INTO instruments (instrument, type_id, main_strings, bowed, origin, url)
+                    VALUES ($1, $2, $3, $4, $5, $6);
                 `,
                     // Second argument is an array of values for each parameter in the query:
                 [instrument.instrument, type.id, instrument.main_strings, instrument.bowed, instrument.origin, instrument.url]);
