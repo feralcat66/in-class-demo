@@ -16,6 +16,9 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(morgan('dev')); // http logging
 app.use(cors()); // enable CORS request
+app.use(express.static('public')); // server files from /public folder
+app.use(express.json()); // enable reading incoming json data
+app.use(express.urlencoded({ extended: true }));
 
 // API Routes
 
@@ -27,14 +30,35 @@ app.get('/api/instruments', async(req, res) => {
                 main_strings,
                 bowed,
                 origin,
-                url
+                url,
+                t.name as type
             FROM instruments;
+            JOIN types as t
+            on instruments.type_id = t.id;
         `);
 
         console.log(result.rows);
 
         res.json(result.rows);
     } catch (err) {
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
+app.get('/api/types', async (req, res) => {
+    try {
+        const result = await client.query(`
+            SELECT *
+            FROM types
+            ORDER BY name;
+        `);
+
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
         res.status(500).json({
             error: err.message || err
         });

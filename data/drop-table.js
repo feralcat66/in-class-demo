@@ -11,6 +11,7 @@ async function run() {
     
         await client.query(`
             DROP TABLE IF EXISTS instruments;
+            DROP TABLE IF EXISTS types;
         `);
 
         console.log('drop tables complete');
