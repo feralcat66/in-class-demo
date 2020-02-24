@@ -1,7 +1,7 @@
 module.exports = [
     {
         id: 'sitar',
-        instrument: 'sitar',
+        instrument: 'Sitar',
         type: 'plucked/strummed',
         main_strings: '7',
         bowed: 'false',
@@ -10,7 +10,7 @@ module.exports = [
     },
     {
         id: 'sarangi',
-        instrument: 'sarangi',
+        instrument: 'Sarangi',
         type: 'bowed',
         main_strings: '4',
         bowed: 'true',
@@ -19,7 +19,7 @@ module.exports = [
     },
     {
         id: 'gaohu',
-        instrument: 'gaohu',
+        instrument: 'Gaohu',
         type: 'bowed',
         main_strings: '2',
         bowed: 'true',
@@ -28,7 +28,7 @@ module.exports = [
     },
     {
         id: 'oud',
-        instrument: 'oud',
+        instrument: 'Oud',
         type: 'plucked/strummed',
         main_strings: '11',
         bowed: 'false',
@@ -37,7 +37,7 @@ module.exports = [
     },
     {
         id: 'koto',
-        instrument: 'koto',
+        instrument: 'Koto',
         type: 'plucked/strummed',
         main_strings: '13',
         bowed: 'false',
@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         id: 'cittern',
-        instrument: 'cittern',
+        instrument: 'Cittern',
         type: 'plucked/strummed',
         main_strings: '10',
         bowed: 'false',
@@ -55,7 +55,7 @@ module.exports = [
     },
     {
         id: 'dan-bau',
-        instrument: 'dan-bau',
+        instrument: 'Dan-bau',
         type: 'plucked/strummed',
         main_strings: '1',
         bowed: 'false',
@@ -64,7 +64,7 @@ module.exports = [
     },
     {
         id: 'yahzheng',
-        instrument: 'yahzheng',
+        instrument: 'Yahzheng',
         type: 'bowed',
         main_strings: '11',
         bowed: 'true',
