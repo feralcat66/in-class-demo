@@ -48,6 +48,28 @@ app.get('/api/instruments', async(req, res) => {
     }
 });
 
+app.get('/api/instruments/:myInstrumentId', async (req, res) => {
+    try {
+        const result = await client.query(`
+            SELECT *
+            FROM instruments
+            WHERE instruments.id=$1`, 
+            // the second parameter is an array of values to be SANITIZED then inserted into the query
+            // i only know this because of the `pg` docs
+        [req.params.myInstrumentId]);
+
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
+
+
 app.get('/api/types', async (req, res) => {
     try {
         const result = await client.query(`
