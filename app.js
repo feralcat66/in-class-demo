@@ -48,6 +48,30 @@ app.get('/api/instruments', async(req, res) => {
     }
 });
 
+app.post('/api/instruments', async (req, res) => {
+    // using req.body instead of req.params or req.query (which belong to /GET requests)
+    try {
+        console.log(req.body);
+        // make a new cat out of the cat that comes in req.body;
+        const result = await client.query(`
+            INSERT INTO instruments (instrument, type_id, main_strings, bowed, origin, url)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING *;
+        `,
+        // pass the values in an array so that pg.Client can sanitize them
+            [req.body.instrument, req.body.typeId, req.body.main_strings, req.body.bowed, req.body.origin, req.body.url]
+        );
+
+        res.json(result.rows[0]); // return just the first result of our query
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
 app.get('/api/instruments/:myInstrumentId', async (req, res) => {
     try {
         const result = await client.query(`
