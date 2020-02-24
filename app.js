@@ -36,7 +36,7 @@ app.get('/api/instruments', async(req, res) => {
                 t.name as type
             FROM instruments
             JOIN types t
-            on instrument.type_id = t.id;
+            on instruments.type_id = t.id;
         `);
 
         console.log(result.rows);
