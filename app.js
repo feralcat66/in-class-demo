@@ -28,11 +28,12 @@ app.get('/api/instruments', async(req, res) => {
             SELECT
                 instrument,
                 main_strings,
+                type,
                 bowed,
                 origin,
                 url,
                 t.name as type
-            FROM instruments;
+            FROM instruments
             JOIN types t
             on instrument.type_id = t.id;
         `);
