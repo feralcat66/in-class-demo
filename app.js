@@ -27,6 +27,7 @@ app.get('/api/instruments', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT
+                id,
                 instrument,
                 main_strings,
                 bowed,
@@ -59,7 +60,7 @@ app.post('/api/instruments', async (req, res) => {
             RETURNING *;
         `,
         // pass the values in an array so that pg.Client can sanitize them
-            [req.body.instrument, req.body.typeId, req.body.main_strings, req.body.bowed, req.body.origin, req.body.url]
+        [req.body.instrument, req.body.typeId, req.body.main_strings, req.body.bowed, req.body.origin, req.body.url]
         );
 
         res.json(result.rows[0]); // return just the first result of our query
@@ -72,7 +73,7 @@ app.post('/api/instruments', async (req, res) => {
     }
 });
 
-app.get('/api/instruments/:myInstrumentId', async (req, res) => {
+app.get('/api/instruments/:myInstrumentId', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT *
