@@ -27,7 +27,7 @@ app.get('/api/instruments', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT
-                id,
+                instruments.id,
                 instrument,
                 main_strings,
                 bowed,
